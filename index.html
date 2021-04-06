@@ -1,0 +1,128 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceX Dashboard | The Road to Mars</title>
+    <link rel="stylesheet" href="spacex-dashboard-challenge-1-css-reset.css">
+    <link rel="stylesheet" href="spacex-dashboard-challenge-1-v2.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <link rel="icon" type="image/png" href="favicon.png"/>
+</head>
+
+<body>
+    <main class="container">
+        <header>
+            <img src="spacex-logo.png" alt="SpaceX Logo">
+            <h2>The Route to Mars</h2>
+        </header>
+        <section id="dashboard">
+            <section>
+                <section>
+                    <h1>Dashboard</h1>
+                    <h2 id="date">March 1, 2021</h2>
+                </section>
+                <a>Trip number 1
+                    <img src="arrow.svg" alt="v">
+                </a>
+            </section>
+            <section id="dashboard-grid">
+                <article class="time-and-distance">
+                    <h2>Time and distance</h2>
+                    <section>
+                        <section>
+                            <h3>Days left</h3>
+                            <p><span class="largeNumber">200</span>d</p>
+                        </section>
+                        <section>
+                            <h3>Days en route</h3>
+                            <p><span class="largeNumber">400</span>d</p>
+                        </section>
+                        <section>
+                            <h3>Traveled since take off</h3>
+                            <p><span class="largeNumber">79.049</span>km</p>
+                        </section>
+                    </section>
+                </article>
+                <article class="atmosphere-division">
+                    <h2>Atmosphere division</h2>
+                    <section>
+                        <section>
+                            <h3>Nytrogen</h3>
+                            <h3>Oxygen</h3>
+                        </section>
+                        <section>
+                            <section class="percentage percentageOxygen">42<span class="percentageType">%</span></section>
+                            <section class="percentage percentageNytrogen">58<span class="percentageType">%</span></section>
+                            <canvas id="atmosphereChart"></canvas>
+                        </section>
+                    </section>
+                </article>
+                <article class="speed-gravity-over-time speed-over-time">
+                    <h2>Speed over time</h2>
+                    <section>
+                        <section>
+                            <h3>km per second</h3>
+                        </section>
+                        <section>
+                            <canvas id="speedOverTimeChart"></canvas>
+                            <h3>hours</h3>
+                            <section class="currentSpeed">
+                                <hr>
+                                <section class="percentage">459</section>
+                            </section>
+                        </section>
+                    </section>
+                </article>
+                <article class="speed-gravity-over-time gravity-over-time">
+                    <h2>Gravity over time</h2>
+                    <section>
+                        <section>
+                            <h3>value of g (m/s2)</h3>
+                        </section>
+                        <section>
+                            <canvas id="gravityOverTimeChart"></canvas>
+                            <h3>hours</h3>
+                            <section class="currentSpeed">
+                                <hr>
+                                <section class="percentage">2.2</section>
+                            </section>
+                        </section>
+                    </section>
+                </article>
+                <article class="supplies-left">
+                    <h2>Supplies left</h2>
+                    <section>
+                        <section>
+                            <h3>Food</h3>
+                            <section class="percentage percentageFood">42<span class="percentageType">%</span></section>
+                            <canvas id="foodLeftChart"></canvas>
+                        </section>
+                        <section>
+                            <h3>Water</h3>
+                            <section class="percentage percentageFood">42<span class="percentageType">%</span></section>
+                            <canvas id="waterLeftChart"></canvas>
+                        </section>
+                    </section>
+                </article>
+                <article class="fuel-left">
+                    <h2>Fuel left</h2>
+                    <section>
+                        <section>
+                            <h3>Monomethyl Hydrazine</h3>
+                            <section class="percentage percentageFuel">43<span class="percentageType">%</span></section>
+                            <canvas id="fuelLeftChart"></canvas>
+                        </section>
+                    </section>
+                </article>
+            </section>
+        </section>
+        <p class="footer">Jimmy Jansen van 't Land</p>
+    </main>
+</body>
+<script src="spacex-dashboard-challenge-1-script.js"></script>
+<script src="chartjsShowAllTooltips.js"></script>
+</html>

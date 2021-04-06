@@ -1,0 +1,378 @@
+// variables
+
+$black: #0D0B0F;
+$blackLightGradient: linear-gradient(28deg, rgba(45,44,49,1) 0%, rgba(46,45,52,1) 100%); //property: background
+$red: #E51736;
+$blue: #28B3FF;
+$green: #00CC61;
+$white: #ffffff;
+
+$br-standard: 50px;
+
+*{
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 700;
+    color: $white;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+a{
+    background-color: $blue;
+    font-size: 14pt;
+    border: none;
+    padding: 20px;
+    border-radius: 100px;
+}
+
+h1{
+    font-size: 25pt;
+    white-space: nowrap;
+    @media only screen and (min-width:800px){
+        white-space: normal;
+    }
+}
+h2{
+    font-size: 20pt;
+    white-space: nowrap;
+    @media only screen and (min-width:800px){
+        white-space: normal;
+    }
+}
+h3{
+    font-size: 18pt;
+    white-space: nowrap;
+    @media only screen and (min-width:800px){
+        white-space: normal;
+    }
+}
+p{
+    font-size: 14pt;
+}
+span.largeNumber{
+    font-size: 30pt;
+}
+canvas{
+    width: 100%;
+    height: 100%;
+}
+.percentage{
+    padding: 30px 15px;
+    background-color: $white;
+    font-size: 25pt;
+    color: $black;
+    position: absolute;
+    width: fit-content;
+    border-radius: 200px;
+    font-weight: 800;
+}
+.percentageOxygen{
+    right: 0px;
+    transform: translate(-40px, 0px);
+}
+.percentageNytrogen{
+    left: 20px;
+    transform: translate(0px, 70px);
+}
+.percentageFood, .percentageWater, .percentageFuel{
+    transform: translate(70px, 82px);
+    @media only screen and (min-width: 660px){
+        transform: translate(75px, 49px);
+    }
+    @media only screen and (min-width: 800px){
+        transform: translate(95px, 80px);
+    }
+    @media only screen and (min-width: 1000px) and (max-width: 1500px){
+        transform: translate(35px, 10px);
+    }
+}
+.percentageType{
+    font-size: 14pt;
+    color: $black;
+}
+
+body{
+    background: $black;
+    main.container{
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        height: 100vh;
+        @media only screen and (min-width: 1500px){
+            height: 100%;
+            overflow: visible;
+        }
+        max-width: 1500px;
+        margin: 0 auto;
+        header{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            h2{
+                color: #5E5C66;
+                margin-top: 10px;
+            }
+        }
+        overflow: hidden;
+        section#dashboard{
+            background: $blackLightGradient;
+            border-radius: $br-standard;
+            margin-top: 30px;
+            overflow-x: scroll;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            @media only screen and (min-width: 1500px){
+                overflow: visible;
+                height: auto;
+            }
+            > section{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 30px 20px 0px 20px;
+                > section{
+                    h1{
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+            section#dashboard-grid{
+                margin: 20px;
+                padding: 0px;
+                display: grid;
+                grid-template-columns: 100%;
+                grid-template-rows: auto;
+                grid-template-areas:
+                "art1"
+                "art2"
+                "art3"
+                "art4"
+                "art5"
+                "art6";
+                column-gap:20px;
+                row-gap: 20px;
+                align-items: stretch;
+                @media only screen and (min-width:800px) and (max-width:999px){
+                    grid-template-columns: 48% 48%;
+                    grid-template-areas: 
+                    "art1 art2"
+                    "art3 art3"
+                    "art4 art4"
+                    "art5 art6";
+                }
+                @media only screen and (min-width:1000px) and (max-width:1500px){
+                    grid-template-columns: 48% 48%;
+                    grid-template-areas: 
+                    "art1 art2"
+                    "art3 art4"
+                    "art5 art6";
+                }
+                @media only screen and (min-width:1500px){
+                    grid-template-columns: 30% auto 10% auto 30%;
+                    grid-template-areas: 
+                    "art1 art2 art2 art3 art3"
+                    "art4 art4 art5 art5 art6";
+                }
+                article{
+                    background-color: $black;
+                    padding: 40px;
+                    border-radius: $br-standard;
+                    margin: 10px 0px;
+                    position: relative;
+                    section{
+                        margin-top: 30px;
+                    }
+                    h3{
+                        margin-bottom: 10px;
+                    }
+                }
+                article.time-and-distance{
+                    grid-area: art1;
+                    section{
+                        section{
+                            &:nth-of-type(1){
+                                h3{
+                                    color: $red;
+                                }
+                            }
+                            &:nth-child(2){
+                                h3{
+                                    color: $blue;
+                                }
+                            }
+                            &:nth-child(3){
+                                h3{
+                                    color: $green;
+                                }
+                            }
+                        }
+                    }
+                }
+                article.atmosphere-division{
+                    grid-area: art2;
+                    @media only screen and (min-width: 1000px) and (max-width:1500px){
+                        align-self: flex-start;
+                    }
+                    > section{
+                        > section{
+                            h3{
+                                &:nth-of-type(1){
+                                    color: $red;
+                                }
+                                &:nth-of-type(2){
+                                    color: $blue;
+                                }
+                            }
+                        }
+                        > &:nth-child(2){
+                            position: relative;
+                        }
+                    }
+                }
+                article.speed-over-time{
+                    grid-area: art3;
+                }
+                article.gravity-over-time{
+                    grid-area: art4;
+                    @media only screen and (min-width: 1500px){
+                        align-self: flex-start;
+                    }
+                }
+                article.speed-gravity-over-time{
+                    > section{
+                        > section{
+                            position: relative;
+                            h3{
+                                color: $blue;
+                                align-self: center;
+                            }
+                            &:nth-child(2){
+                                display: flex;
+                                flex-direction: column;
+                                align-items: flex-end;
+                                > h3{
+                                    color: $green;
+                                }
+                            }
+                            .currentSpeed{
+                                position: absolute;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                transform: translate(20px, 50px);
+                                @media only screen and (min-width: 800px) and (max-width:999px){
+                                    transform: translate(20, 110px);
+                                }
+                                @media only screen and (min-width: 1000px){
+                                    transform: translate(40px, 95px);
+                                }
+                                @media only screen and (min-width:1000px) and (max-width:1499px){
+                                    transform: translate(0px, 45px);
+                                }
+                                @media only screen and (min-width: 1500px){
+                                    transform: translate(30px, 80px);
+                                }
+                                > hr{
+                                    border: 3px solid $red;
+                                    width: 240px;
+                                    @media only screen and (min-width: 800px) and (max-width:999px){
+                                        width: 330px;
+                                    }
+                                    @media only screen and (min-width: 1000px){
+                                        width: 420px;
+                                    }
+                                    @media only screen and (min-width:1000px) and (max-width:1299px){
+                                        width: 230px;
+                                    }
+                                    @media only screen and (min-width: 1500px){
+                                        width: 280px;
+                                    }
+                                    transform: rotate(90deg);
+                                }
+                            }
+                        }
+                    }
+                }
+                article.supplies-left{
+                    grid-area: art5;
+                    > section{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        margin-top: 0px;
+                        @media only screen and (min-width: 660px) and (max-width:800px){
+                            flex-direction: row;
+                            width:100%;
+                        }
+                        @media only screen and (min-width: 1000px){
+                            flex-direction: row;
+                            width: 80%;
+                        }
+                        @media only screen and (min-width: 1500px){
+                            flex-direction: column;
+                            width: 100%;
+                        }
+                        > section{
+                            width: 100%;
+                            position: relative;
+                            
+                            h3{
+                                margin-bottom: 20px;
+                            }
+                            &:nth-child(1){
+                                > h3{
+                                    color: $green;
+                                }
+                            }
+                            &:nth-child(2){
+                                > h3{
+                                    color: $blue;
+                                }
+                            }
+                        }
+                    }
+                }
+                article.fuel-left{
+                    grid-area: art6;
+                    @media only screen and (min-width: 1000px){
+                        align-self: flex-start;
+                    }
+                    > section{
+                        > section{
+                            width: 100%;
+                            @media only screen and (min-width: 660px) and (max-width:800px){
+                                width: 50%;
+                            }
+                            @media only screen and (min-width: 1000px){
+                                width: 40%;
+                            }
+                            @media only screen and (min-width: 1500px){
+                                width: 100%;
+                            }
+                            h3{
+                                color: $red;
+                                margin-bottom: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        p.footer{
+            width: 100%;
+            text-align: center;
+            color: #5E5C66;
+            padding: 20px 0px;
+        }
+    }
+}
+
